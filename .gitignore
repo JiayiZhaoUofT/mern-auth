@@ -1,2 +1,4 @@
 node_modules
 config/keys.js
+.bash_profile
+.env

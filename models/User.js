@@ -2,7 +2,19 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 console.log("user user");
+
 //create schema
+const ImageSchema = new Schema({
+  url: {
+    type: String,
+    required: true
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  }
+});
+
 const UserSchema = new Schema({
   name: {
     type: String,
@@ -16,6 +28,7 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
+  images: [ImageSchema],
   date: {
     type: Date,
     default: Date.now

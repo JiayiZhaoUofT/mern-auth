@@ -9,9 +9,11 @@ const validateLoginInput = require("../../validation/login");
 // Load User model
 const User = require("../../models/User");
 
-//@route POST api/users/register
-//@desc Register user
-//@access Public
+/**
+ * @route POST api/users/register
+ * @desc Register user
+ * @access Public
+ */
 router.post("/register", (req, res) => {
   //Form validation
   const { errors, isValid } = validateRegisterInput(req.body);
@@ -43,13 +45,15 @@ router.post("/register", (req, res) => {
     }
   });
 });
-
-//@route POST api/users/login
-//@desc Login user and return JWT token
-//@access Public
+/**
+ * @route POST api/users/login
+ * @desc Login user and return JWT token
+ * @access Public
+ */
 router.post("/login", (req, res) => {
   //Form validation
   const { errors, isValid } = validateLoginInput(req.body);
+
   //check validation
   if (!isValid) {
     return res.status(400).json(errors);
@@ -94,5 +98,5 @@ router.post("/login", (req, res) => {
     });
   });
 });
-
+// router.get("/", (req, res) => res.send("router"));
 module.exports = router;
